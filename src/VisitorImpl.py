@@ -121,19 +121,19 @@ class VisitorImpl(MiniCVisitor):
         op = ctx.op.text
         return self.g.binop_cmp(op, ra, rb)
     
-    def visitPostfixadd(self, ctx:MiniCParser.PostfixaddContext):
-        name = ctx.ID().getText()
-        self.g.ensure_var(name)
-        r = self.g.load_var(name)
-        self.g.assign(name, self.g.binop_arith("+", r, self.g.load_number(1)))
-        return None
+    # def visitPostfixadd(self, ctx:MiniCParser.PostfixaddContext):
+    #     name = ctx.ID().getText()
+    #     self.g.ensure_var(name)
+    #     r = self.g.load_var(name)
+    #     self.g.assign(name, self.g.binop_arith("+", r, self.g.load_number(1)))
+    #     return None
 
-    def visitPostfixdec(self, ctx:MiniCParser.PostfixdecContext):
-        name = ctx.ID().getText()
-        self.g.ensure_var(name)
-        r = self.g.load_var(name)
-        self.g.assign(name, self.g.binop_arith("-", r, self.g.load_number(1)))
-        return None
+    # def visitPostfixdec(self, ctx:MiniCParser.PostfixdecContext):
+    #     name = ctx.ID().getText()
+    #     self.g.ensure_var(name)
+    #     r = self.g.load_var(name)
+    #     self.g.assign(name, self.g.binop_arith("-", r, self.g.load_number(1)))
+    #     return None
 
     # forStmt: 'for' '(' forInit ';' forCond ';' forStep ')' stmt ;
     def visitForStmt(self, ctx):
